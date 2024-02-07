@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test pagina | Contact</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 0.5em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        label[for="voornaam"],
+        label[for="achternaam"] {
+            display: inline-block;
+            width: 48%;
+            margin-right: 2%;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Aangepaste stijl voor de bevestigingstekst */
+        #bevestiging {
+            display: none;
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Test pagina</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overons.html">Over Ons</a></li>
+            <li><a href="diensten.html">Diensten</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Contactinformatie</h2>
+        <p>Neem contact met ons op via het onderstaande formulier.</p>
+
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="post" onsubmit="return toonBevestiging()">
+
+            <input type="hidden" name="access_key" value="cd12e256-440a-4ac4-9ad4-73ba9a3bd14d">
+
+            <label for="voornaam">Voornaam:</label>
+            <input type="text" id="voornaam" name="voornaam" required>
+
+            <label for="achternaam">Achternaam:</label>
+            <input type="text" id="achternaam" name="achternaam" required>
+
+            <label for="email">E-mailadres:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="vraag">Vraag:</label>
+            <textarea id="vraag" name="vraag" rows="4" required></textarea>
+
+            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+            <input type="submit" value="Verstuur">
+        </form>
+
+
+
+        <!-- Bevestigingstekst -->
+        <div id="bevestiging">Formulier succesvol verzonden!</div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mijn Leuke Website. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script>
+        function toonBevestiging() {
+            // Toon de bevestigingstekst
+            document.getElementById('bevestiging').style.display = 'block';
+
+            // Verberg het formulier
+            document.getElementById('contactForm').style.display = 'none';
+
+            // Voorkom het standaardgedrag van het formulier
+            return false;
+        }
+    </script>
+</body>
+</html>
